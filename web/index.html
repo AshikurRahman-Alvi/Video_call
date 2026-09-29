@@ -1,1 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>PeerCall</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main>
+    <header>
+      <div>
+        <h1>PeerCall</h1>
+        <p>Simple 1-to-1 WebRTC video calling</p>
+      </div>
+      <span id="status" class="status">Not connected</span>
+    </header>
 
+    <section id="joinPanel" class="card join">
+      <label for="room">Room ID</label>
+      <div class="joinRow">
+        <input id="room" maxlength="64" placeholder="e.g. study-room-1010" autocomplete="off">
+        <button id="joinBtn">Join call</button>
+      </div>
+      <button id="newRoomBtn" class="secondary">Generate room</button>
+      <p class="hint">Both people must open the same room ID.</p>
+    </section>
+
+    <section id="callPanel" class="hidden">
+      <div class="videos">
+        <div class="videoBox remoteBox">
+          <video id="remoteVideo" autoplay playsinline></video>
+          <span>Remote</span>
+          <div id="waiting" class="waiting">Waiting for the other person…</div>
+        </div>
+        <div class="videoBox localBox">
+          <video id="localVideo" autoplay playsinline muted></video>
+          <span>You</span>
+        </div>
+      </div>
+
+      <div class="roomInfo card">
+        <div><strong>Room:</strong> <span id="roomName"></span></div>
+        <button id="copyBtn" class="secondary">Copy invite link</button>
+      </div>
+
+      <div class="controls">
+        <button id="micBtn">🎙 Mic on</button>
+        <button id="camBtn">📷 Camera on</button>
+        <button id="hangupBtn" class="danger">End call</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>
